@@ -5,6 +5,7 @@ import VersionTargetForm, {
   VersionFilters,
 } from "renderer/components/VersionTargetForm";
 import { useTranslation } from "react-i18next";
+import { useApiTargets } from "shared/backend/services/apiTargets";
 
 type Props = {
   onChanged: (values: {
@@ -23,6 +24,9 @@ const FirmwareReleasesPicker: React.FC<Props> = ({
   version,
   filters,
 }) => {
+  const [apiTargets, apiTargetsError] = useApiTargets();
+  console.log(apiTargets, apiTargetsError);
+
   const { t } = useTranslation("flashing");
   const releasesQuery = useQuery(
     gql(/* GraphQL */ `
