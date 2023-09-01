@@ -235,12 +235,14 @@ const FirmwareStep: StepComponent = ({ onNext }) => {
         >
           {t(`Download .bin`)}
         </DownloadFirmwareButton>
-        <FlashButton
-          disabled={!target || !version}
-          onClick={() => {
-            onNext?.();
-          }}
-        />
+        {activeTab !== "cloudbuild" && (
+          <FlashButton
+            disabled={!target || !version}
+            onClick={() => {
+              onNext?.();
+            }}
+          />
+        )}
       </StepControlsContainer>
     </FullHeight>
   );

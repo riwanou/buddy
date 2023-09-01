@@ -39,6 +39,7 @@ const DownloadFirmwareButton: React.FC<Props> = ({
   const validPrVersion = isPr && prId && commitId && target;
 
   const isCloudBuildValid =
+    false &&
     version &&
     target &&
     selectedFlags?.every((flag) => flag.name && flag.value);
